@@ -1,0 +1,18 @@
+apply plugin: 'groovy'
+
+dependencies {
+	compile gradleApi()
+	compile localGroovy()
+}
+
+group 'com.tersesystems.logback'
+
+simpleGradlePluginPublishConfiguration {
+	gradlePublishKey = System.getenv('GRADLE_PUBLISH_KEY')
+	gradlePublishSecret = System.getenv('GRADLE_PUBLISH_SECRET')
+	vcsUrl = 'https://github.com/tersesystems/terse-logback'
+	id = 'com.tersesystems.logback.logback-bytebuddy-agent'
+	displayName = 'logback-bytebuddy-agent'
+	description = 'A Gradle plugin for hooking up a Java Agent.  This plugin will attach the agent you specify to the `run`, `test` and `installDist` tasks.  To use it, add an `agent` dependency to your dependencies like `dependencies { agent("com.foo:bar:1.2.3") }`.'
+	tags = ['application', 'agent', 'startScripts', 'run']
+}
